@@ -1,0 +1,19 @@
+#body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100 vh;
+
+}
+#body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100 vh;
+
+}
+#patrat{
+    background-color:burlywood ;
+    height: 10em;
+    width: 15em;
+}
