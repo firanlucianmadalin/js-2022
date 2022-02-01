@@ -1,11 +1,20 @@
-#body{
+#body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-#dreptunghi{
+#dreptunghi {
     background-color: orange;
     height: 10em;
     width: 15em;
+}
+#cerc {
+    background-color: crimson;
+    height: 4em;
+    width:  4em;
+    border-radius: 50%;
+    position: fixed;
+    top: 10px;
+    left: 10px;
 }
