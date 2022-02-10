@@ -1,4 +1,6 @@
 
+const speed = 1000
+
 function randomNumber(max) {
     return Math.round(Math.random() * max)
 }
@@ -23,6 +25,7 @@ function randomLetterElement() {
     div.style.top = randomNumber(99) + 'vh'
     div.style.left = randomNumber(99) + 'vw'
     div.classList.add('letter')
+    div.classList.add('letter',div.innerText)
     document.querySelector('body').append(div)
 }
 
@@ -31,7 +34,7 @@ async function run() {
     hideStart()
     while(!gameOver) {
         randomLetterElement()
-        await new Promise(r => setTimeout(r, 2000))
+        await new Promise(r => setTimeout(r, speed))
     }
 }
 
@@ -39,5 +42,18 @@ function hideStart(){
     document.querySelector('input').style.disply = 'none'
 }
 
+function pressLetter(event) {
+     let code = event.keyCode
+     let letter = String.fromCharCode(code)
+     let element = document.querySelector(`.${letter}`)
+     // daca elementul exista (nu este nul)
+     if (element) {
+        element.remove()
+     }
+
+}
+
 document.querySelector('input').addEventListener('click', run)
+document.addEventListener('keydown', pressLetter)
+
 
