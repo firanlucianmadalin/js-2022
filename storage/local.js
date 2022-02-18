@@ -4,10 +4,11 @@ document . querySelector ( '#resetare' ) . addEventListener ( 'click' ,  resetar
 // load este evenimentul de incarcare a paginii
 fereastra . addEventListener ( 'încărcare' ,  init )
 
+const newLocal = 'myapp_settings'
 function  init ( )  {
     // iau din local storage si decodez JSON-ul
     // daca nu exista in local storage, returneaza null
-    let  settings  =  JSON . parse ( localStorage . getItem ( 'myapp_settings' ) )
+    let  settings  =  JSON . parse ( localStorage . getItem ( newLocal ) )
 
     if  ( setări )  {
         showWelcome ( setări . nume )
@@ -37,7 +38,5 @@ function  showWelcome ( nume )  {
     // face un reload pentru pagina
     locatie . reincarca ( )
 }
-
-
 
 
