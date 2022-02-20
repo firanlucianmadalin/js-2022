@@ -1,68 +1,68 @@
-let  produsele  =  [
+let products = [
     {
-        nume : 'Salata mediteraneana' ,
-        pret : 17.5 ,
-        imaginea : 'https://.unsplash.com/photo-1644704170910-a0cdf183649b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fGVufDB8fHx8fGVufDB8fHx8=autop40,&1=autop40',
-        description : 'Salata cu seminte, mozzarella, broccoli' ,
-    } ,
+        name: 'Salata mediteraneana',
+        price: 17.5,
+        image: 'https://images.unsplash.com/photo-1644704170910-a0cdf183649b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        description: 'Salata cu seminte, mozzarella, broccoli',
+    },
     {
-        nume : 'Cocktail de capsuni' ,
-        pret : 10.5 ,
-        imagine :  'https://images.unsplash.com/photo-1508254627334-d4fa3a515b22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fGVufDB8fHx8=autoformat&0,&fitting=autoformat&',
-        description : 'Cocktail delicios de capsuni cu miere si lamaie' ,
-    } , 
+        name: 'Cocktail de capsuni',
+        price: 10.5,
+        image: 'https://images.unsplash.com/photo-1508254627334-d4fa3a515b22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        description: 'Cocktail delicios de capsuni cu miere si lamaie',
+    }, 
     {
-        nume : 'Sandvis' ,
-        pret : 20.7 ,
-        imaginea : 'https://images.unsplash.com/photo-1643133277733-66a476f7f32e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fGVufDB8fHx8fGVufDB8fHx8=&autop40,&1=autop8',
-        description : 'Sandvis delicios cu mozzarella si sos barbeque' ,
-    } , 
+        name: 'Sandvis',
+        price: 20.75,
+        image: 'https://unsplash.com/photo-1643133277733-66a476f7f32e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+        description: 'Sandvis delicios cu mozzarella si sos barbeque',
+    }, 
 ]
 
-function  showProducts ( )
+function showProducts()
 {
-    clearProducts ( )
+    clearProducts()
 
-    let  minPrice  =  document . querySelector ( '#min' ) . valoare
-    let  maxPrice  =  document . querySelector ( '#max' ) . valoare
+    let minPrice = document.querySelector('#min').value
+    let maxPrice = document.querySelector('#max').value
 
-    produse
-        . filtru ( produs  =>  produs . preț  >=  minPreț  &&  produs . preț  <=  maxPrice )
-        . pentruFiecare ( produs  =>  {
-            let  div  =  document . createElement ( 'div' )
-            div . classList . adauga ( 'produs' )
-            div . innerHTML  =  `
-                <h2 class="name"> ${ produs . nume } </h2>
-                <p class="price">Pret: ${ produs . preț } </p>
-                <p class="image"><img src=" ${ produs . imagine } "></p>
-                <p class="description"> ${ produs . descriere } </p>
+    products
+        .filter(product => product.price >= minPrice && product.price <= maxPrice)
+        .forEach(product => {
+            let div = document.createElement('div')
+            div.classList.add('product')
+            div.innerHTML = `
+                <h2 class="name">${product.name}</h2>
+                <p class="price">Pret: ${product.price}</p>
+                <p class="image"><img src="${product.image}"></p>
+                <p class="description">${product.description}</p>
             `
-            document . querySelector ( '#produse' ) . adaugă ( div )
-    } ) ;
+            document.querySelector('#products').append(div)
+    });
 }
 
-function  clearProducts ( )
+function clearProducts()
 {
-    document . querySelector ( '#produse' ) 
+    document.querySelector('#products').replaceChildren()
 }
 
-function  updateMinPrice ( )  {
-    let  minPrice  =  document . querySelector ( '#min' ) . valoare
-    document . querySelector ( '#minValue' ) . innerText  =  minPrice
+function updateMinPrice() {
+    let minPrice = document.querySelector('#min').value
+    document.querySelector('#minValue').innerText = minPrice
 }
 
-function updateMaxPrice ( )  {
-    let  maxPrice  =  document . querySelector ( '#max' ) . valoare
-    document . querySelector ( '#maxValue' ) . innerText  =  maxPrice
+function updateMaxPrice() {
+    let maxPrice = document.querySelector('#max').value
+    document.querySelector('#maxValue').innerText = maxPrice
 }
 
-function  init ( )  {
-    arataProduse ( )
-    updateMinPrice ( )
-    updateMaxPrice ( )
+function init() {
+    showProducts()
+    updateMinPrice()
+    updateMaxPrice()
 }
 
-fereastra . addEventListener ( 'încărcare' ,  init )
-document . querySelector ( '#filtru' ) . addEventListener ( 'click' ,  showProducts )
-document . querySelector ( '#min' ) . addEventListener ( 'schimbare' ,  updateMinPrice )
-document . querySelector ( '#max' ) . addEventListener ( 'schimbare',  updateMaxPrice )
+window.addEventListener('load', init)
+document.querySelector('#filter').addEventListener('click', showProducts)
+document.querySelector('#min').addEventListener('change', updateMinPrice)
+document.querySelector('#max').addEventListener('change', updateMaxPrice)
