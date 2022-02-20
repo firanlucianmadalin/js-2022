@@ -1,18 +1,17 @@
- joc {
-    display : flex
-    flex-wrap  înfășurare
-    width  50 vw 
+#game {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50vw;
 }
- .card img {
-    image-rendering: 'https://raw.githubusercontent.com/miezuit/html-css-python/main/js/memory/img/wild_oliva.png'
-    width 130 px 
-    height 130 px 
-    marginea2 px 
-    raza-chenar10 px 
+.card {
+    background-image: url(https://raw.githubusercontent.com/miezuit/html-css-python/main/js/memory/img/wild_oliva.png);
+    width: 130px;
+    height: 130px;
+    margin: 2px;
+    border-radius: 10px;
 }
-.card  img {
-    visibility : ascuns
-    width 100 
-    height 100 
+.card img {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
 }
-
